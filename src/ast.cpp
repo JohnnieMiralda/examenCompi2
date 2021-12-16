@@ -122,6 +122,7 @@ void GteExpr::genCode(Code &code){
     this->expr2->genCode(rightExpr);
     string temp= getFloatTemp();
     ss<< "c.lt.s "<< rightExpr.place<< ", "<< leftExpr.place<<endl;
+    ss<< "bc1f "<< temp<<endl;
     releaseFloatTemp(leftExpr.place);
     releaseFloatTemp(rightExpr.place);
     code.place= temp;
@@ -137,6 +138,7 @@ void LteExpr::genCode(Code &code){
     this->expr2->genCode(rightExpr);
     string temp= getFloatTemp();
     ss<< "c.lt.s "<< leftExpr.place<< ", "<< rightExpr.place<<endl;
+    ss<< "bc1f "<< temp<<endl;
     releaseFloatTemp(leftExpr.place);
     releaseFloatTemp(rightExpr.place);
     code.place= temp;
@@ -152,6 +154,7 @@ void EqExpr::genCode(Code &code){
     this->expr2->genCode(rightExpr);
     string temp= getFloatTemp();
     ss<<"c.eq.s "<<leftExpr.place<<" , "<< rightExpr.place<<endl;
+    ss<< "bc1f "<< temp<<endl;
     releaseFloatTemp(leftExpr.place);
     releaseFloatTemp(rightExpr.place);
     code.place= temp;

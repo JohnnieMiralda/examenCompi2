@@ -26,8 +26,11 @@ l.s $f1, 4($sp)
 div.s $f2 , $f0 , $f1
 
 c.lt.s $f1, $f0
+bc1f $f2
 
 c.lt.s $f0, $f1
+bc1f $f2
 
 c.eq.s $f0 , $f1
+bc1f $f2
 
